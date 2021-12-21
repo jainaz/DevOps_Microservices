@@ -5,11 +5,16 @@
 
 # Step 1:
 # Create dockerpath
-# dockerpath=<your docker ID/path>
+image=my-ml-app
+dockerpath=anksjain/$image
 
 # Step 2:  
 # Authenticate & tag
+docker login
 echo "Docker ID and Image: $dockerpath"
+docker tag $image:latest $dockerpath:latest
 
 # Step 3:
 # Push image to a docker repository
+echo "pushing to: $dockerpath:latest"
+docker push $dockerpath:latest
